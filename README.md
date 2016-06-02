@@ -1,14 +1,15 @@
-# CRUD-sys
+# Customauth
 
-Django CRUD-sys using extend user model
-,crispyforms and register-redux
+Django custom user model authentication 
 
 ### Specifications
 
 * Create,Read,Update and Delete operations for any user
 
-* Register,Login and Logout  forms using register-redux
+* Register,Login and Logout  forms 
 
 * Django Admin support is enabled
 
-* Api support using tastypie
+| Django Version   |
+|------------------|
+|       1.9.6      |
