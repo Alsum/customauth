@@ -18,11 +18,11 @@ from django.contrib import admin
 from .views import login, loggedin, auth_view, logout, invalid_login, register_user, register_success
 
 urlpatterns = [
-	url(r'^login/$', login),
-	url(r'^auth/$', auth_view),
-	url(r'^logout/$', logout),
-	url(r'^loggedin/$', loggedin),
-	url(r'^invalid/$', invalid_login),
-	url(r'^register/$', register_user),
-	url(r'^register_success/$', register_success),
+	url(r'^login/$', login,name='login'),
+	url(r'^auth/$', auth_view,name='auth'),
+	url(r'^logout/$', logout,name='logout'),
+	url(r'^loggedin/$', loggedin,name='loggedin'),
+	url(r'^invalid/$', invalid_login,name='invalid'),
+	url(r'^register/$', register_user,name='register'),
+	url(r'^register_success/$', register_success,name='register_success'),
 ]
