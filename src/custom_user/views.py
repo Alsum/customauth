@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import auth
-#from django.core.context_processors import csrf
+from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
 from custom_user.forms import CustomUserCreationForm
 
@@ -24,9 +24,9 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/accounts/loggedin')
+        return HttpResponseRedirect(reverse('accounts:loggedin'))
     else:
-        return HttpResponseRedirect('/accounts/invalid')
+        return HttpResponseRedirect(reverse('accounts:invalid'))
 
 
 def loggedin(request):
@@ -51,7 +51,7 @@ def register_user(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/accounts/register_success')
+            return HttpResponseRedirect(reverse('accounts:register_success'))
 
     else:
         form = CustomUserCreationForm()
