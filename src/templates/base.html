@@ -33,7 +33,7 @@
     {% if user.is_authenticated %}
         You are currently logged in as {{ user.email }}, not you? <a href="{% url 'accounts:logout' %}">Sign out</a>
     {% else %}
-        <a href="{% url 'accounts:register_user' %}">Register</a> or <a href="{% url 'accounts:login' %}">Login</a>
+        <a href="{% url 'accounts:register' %}">Register</a> or <a href="{% url 'accounts:login' %}">Login</a>
     {% endif %}
     {% block content %}
     
