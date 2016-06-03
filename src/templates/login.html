@@ -2,18 +2,12 @@
 
 {% block content %}
 
-  {% if form.errors %}
-    <p class="error">Sorry, that's not a valid username or password</p>
-  {% endif %}
-
-  <form action="/accounts/auth/" method="post">{% csrf_token %}
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
-
-    <input type="submit" value="login" />
-    
-  </form>
+<div class='col-sm-6 col-sm-offset-3' style='margin-top: 50px;'>
+    <form method='POST' action=''>{% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='{% if submit_btn %}{{ submit_btn }}{% else %}Submit{% endif %}'
+               class='btn btn-default'/>
+    </form>
+</div>
 
 {% endblock %}
