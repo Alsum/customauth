@@ -38,7 +38,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=254, unique=True, blank=True, null=True)
     first_name = models.CharField(max_length=254, blank=True)
-    second_name = models.CharField(max_length=254, blank=True)
+    last_name = models.CharField(max_length=254, blank=True)
     email = models.EmailField(unique=True)
     address1 = models.CharField(max_length=254, blank=True)
     address2 = models.CharField(max_length=254, blank=True)
@@ -47,7 +47,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     # is_superuser = models.BooleanField(default=False)
 

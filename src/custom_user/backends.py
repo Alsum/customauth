@@ -2,9 +2,10 @@ from models import CustomUser
 
 
 class CustomUserAuth(object):
-    def authenticate(self, email=None, password=None):
+    # keyword -args should be username and password
+    def authenticate(self, username=None, password=None):
         try:
-            user = CustomUser.objects.get(email=email)
+            user = CustomUser.objects.get(email=username)
             if user.check_password(password):
                 return user
         except CustomUser.DoesNotExist:

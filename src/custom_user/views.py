@@ -18,7 +18,7 @@ def login(request):
     if form.is_valid():
         email = form.cleaned_data['email']
         password = form.cleaned_data['password']
-        user = auth.authenticate(email=email, password=password)
+        user = auth.authenticate(username=email, password=password)
         auth.login(request, user)
         messages.success(request, "Successfully Logged In. Welcome Back!")
         return HttpResponseRedirect("/")
