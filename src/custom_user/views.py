@@ -4,12 +4,20 @@ from django.contrib import auth
 from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
 from .forms import LoginForm
+from .models import CustomUser
 from django.contrib import messages
 from custom_user.forms import CustomUserCreationForm
 
 
 def home(request):
-	return render(request, "home.html")
+	if request.user.is_authenticated() and request.user.is_staff:
+		queryset = CustomUser.objects.all().order_by('-date_joined')
+		context = {
+			"queryset": queryset
+		}
+	else:
+		context = {"queryset": "welcome"}
+	return render(request, "home.html", context)
 
 
 def login(request):
